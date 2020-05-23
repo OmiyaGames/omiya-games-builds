@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using System.Text;
 
-namespace OmiyaGames.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="AndroidKeystoreCredentialsWindow.cs" company="Omiya Games">

@@ -1,11 +1,9 @@
 ﻿using UnityEditor;
 using UnityEditor.AnimatedValues;
-using UnityEditorInternal;
 using UnityEngine;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="WebGlBuildSettingEditor.cs" company="Omiya Games">

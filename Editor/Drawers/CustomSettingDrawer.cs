@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="CustomSettingDrawer.cs" company="Omiya Games">

@@ -6,7 +6,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEditor;
 
-namespace OmiyaGames.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="BuildPlayersResult.cs" company="Omiya Games">

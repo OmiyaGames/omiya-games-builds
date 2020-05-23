@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using OmiyaGames.Web.Editor;
 
-namespace OmiyaGames.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IPlatformBuildSetting.cs" company="Omiya Games">

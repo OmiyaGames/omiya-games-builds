@@ -2,10 +2,9 @@
 using UnityEditor.AnimatedValues;
 using UnityEngine;
 using System.Collections.Generic;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IBuildSettingEditor.cs" company="Omiya Games">
@@ -39,7 +38,7 @@ namespace OmiyaGames.UI.Builds
     /// </summary>
     /// <seealso cref="IBuildSetting"/>
     [CustomEditor(typeof(IBuildSetting))]
-    public abstract class IBuildSettingEditor : Editor
+    public abstract class IBuildSettingEditor : UnityEditor.Editor
     {
         private string previewPath = null;
         private AnimBool folderAnimation;

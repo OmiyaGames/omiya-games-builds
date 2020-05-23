@@ -5,7 +5,7 @@ using OmiyaGames.Web.Security;
 using OmiyaGames.Cryptography;
 using OmiyaGames.Cryptography.Editor;
 
-namespace OmiyaGames.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="HostArchiveSetting.cs" company="Omiya Games">

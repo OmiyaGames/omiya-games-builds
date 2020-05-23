@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-namespace OmiyaGames.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="CustomSetting.cs" company="Omiya Games">

@@ -1,11 +1,9 @@
 ﻿using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
-using System;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IPlatformBuildSettingEditor.cs" company="Omiya Games">

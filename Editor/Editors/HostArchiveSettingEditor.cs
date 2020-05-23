@@ -4,10 +4,9 @@ using UnityEditorInternal;
 using UnityEngine;
 using System.Text;
 using OmiyaGames.Cryptography;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="HostArchiveSettingEditor.cs" company="Omiya Games">

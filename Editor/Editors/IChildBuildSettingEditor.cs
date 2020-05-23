@@ -1,11 +1,9 @@
 ﻿using UnityEditor;
 using UnityEditor.AnimatedValues;
-using UnityEditorInternal;
 using UnityEngine;
 using System.Collections.Generic;
-using OmiyaGames.Builds;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IChildBuildSettingEditor.cs" company="Omiya Games">

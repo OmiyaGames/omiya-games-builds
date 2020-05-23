@@ -1,10 +1,7 @@
 ﻿using UnityEditor;
-using UnityEditor.AnimatedValues;
-using UnityEngine;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IStandaloneBuildSettingEditor.cs" company="Omiya Games">

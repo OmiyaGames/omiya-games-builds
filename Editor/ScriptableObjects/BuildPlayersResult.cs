@@ -1,11 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 
-namespace OmiyaGames.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="BuildPlayersResult.cs" company="Omiya Games">

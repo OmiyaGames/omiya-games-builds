@@ -2,10 +2,9 @@
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using OmiyaGames.Builds;
 using OmiyaGames.Common.Editor;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="ChildBuildSettingReorderableList.cs" company="Omiya Games">

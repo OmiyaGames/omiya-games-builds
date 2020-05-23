@@ -1,7 +1,6 @@
 ﻿using UnityEditor;
-using OmiyaGames.Builds;
 
-namespace OmiyaGames.UI.Builds
+namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="AndroidBuildSettingEditor.cs" company="Omiya Games">
