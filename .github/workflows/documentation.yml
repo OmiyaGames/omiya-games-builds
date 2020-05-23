@@ -8,9 +8,6 @@ on:
 jobs:
   # Build the documentation
   build:
-    if:    # Adding if-statement to prevent this job from running on packages using this template.
-           # If you want to run this documentation job, just take out the if-field and value below.
-      github.repository == 'OmiyaGames/template-unity-package'
     runs-on: windows-latest # Required by DocFX
     steps:
       - name: Checkout
@@ -21,16 +18,11 @@ jobs:
       - name: Install DocFX
         run: choco install -y docfx
 
-      # Taro Omiya here, want to copy a different file instead of README
+      # Copy changelog over
       - name: Build
         run: |
           cp CHANGELOG.md Documentation~/manual/changelog.md
           docfx Documentation~/docfx.json
-      # Below is the original instructions by Erwan Normand
-      # - name: Build
-      #   run: |
-      #     cp README.md Documentation~/index.md
-      #     docfx Documentation~/docfx.json
 
       # Upload the generated documentation
       - name: Upload site artifact
@@ -42,9 +34,6 @@ jobs:
   # Deploy the generated documentation to the gh-pages branch
   deploy:
     needs: build
-    if:    # Adding if-statement to prevent this job from running on packages using this template.
-           # If you want to run this documentation job, just take out the if-field and value below.
-      github.repository == 'OmiyaGames/template-unity-package'
     runs-on: ubuntu-latest # Required by 'JamesIves/github-pages-deploy-action'
     steps:
       - name: Checkout
