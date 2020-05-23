@@ -1,0 +1,24 @@
+{
+    "name": "OmiyaGames.Builds.Editor",
+    "references": [
+        "OmiyaGames",
+        "OmiyaGames.Common.Editor",
+        "OmiyaGames.Global",
+        "OmiyaGames.Cryptography",
+        "OmiyaGames.Cryptography.Editor",
+        "OmiyaGames.Web.Editor",
+        "OmiyaGames.Web.Security",
+        "OmiyaGames.Web.Security.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

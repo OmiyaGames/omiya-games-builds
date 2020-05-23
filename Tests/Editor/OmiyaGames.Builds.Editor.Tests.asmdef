@@ -1,8 +1,7 @@
 {
-    "name": "OmiyaGames.Build.Editor.Tests",
+    "name": "OmiyaGames.Builds.Editor.Tests",
     "references": [
-        "OmiyaGames.Build",
-        "OmiyaGames.Build.Editor"
+        "OmiyaGames.Builds.Editor"
     ],
     "includePlatforms": [
         "Editor"
