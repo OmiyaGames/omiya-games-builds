@@ -1,10 +1,10 @@
 {
-  "name": "com.omiyagames.template",
-  "displayName": "Omiya Games - Template Unity Package",
+  "name": "com.omiyagames.build",
+  "displayName": "Omiya Games - Build",
   "version": "0.1.0-preview.1",
   "unity": "2019.3",
-  "unityRelease": "7f1",
-  "description": "This is a template package, used as a basis to build a bigger one.",
+  "unityRelease": "13f1",
+  "description": "Tool for creating multiple builds, for multiple platforms, with just one-click.",
   "category": "Tool",
   "type": "tool",
   "license": "MIT",
@@ -14,19 +14,35 @@
     "url": "https://www.omiyagames.com"
   },
   "dependencies": {
-    "com.unity.ext.nunit": "1.0.0"
+    "com.unity.ext.nunit": "1.0.0",
+    "io.github.icsharpcode.sharpziplib": "1.2.0",
+    "com.omiyagames.web.security": "0.1.0-preview.1"
   },
   "keywords": [
     "Omiya Games",
     "Scripts",
     "Template",
-    "Tool"
+    "Tool",
+    "Build",
+    "Platform",
+    "Multiplatform"
   ],
   "samples": [
     {
       "displayName": "Example 1",
       "description": "This sample is just an example",
       "path": "Samples~/Example1"
+    }
+  ],
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.openupm",
+        "io.github.icsharpcode.sharpziplib",
+        "com.omiyagames.web.security"
+      ]
     }
   ]
 }
