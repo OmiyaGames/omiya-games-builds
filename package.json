@@ -31,13 +31,6 @@
     "Platform",
     "Multiplatform"
   ],
-  "samples": [
-    {
-      "displayName": "Example 1",
-      "description": "This sample is just an example",
-      "path": "Samples~/Example1"
-    }
-  ],
   "scopedRegistries": [
     {
       "name": "package.openupm.com",
