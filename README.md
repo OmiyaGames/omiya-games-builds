@@ -2,17 +2,18 @@
 
 [![Builds documentation](https://github.com/OmiyaGames/omiya-games-builds/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-builds/) [![Mirroring](https://github.com/OmiyaGames/omiya-games-builds/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/omiya-games-builds) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
 
-**Multiplatform Build Settings** is a Unity package by [Omiya Games](https://www.omiyagames.com/) that allows one to setup build settings for multiple platforms, then with one-click, prompt Unity to build to all of them.  This package supports building to:
+**Multiplatform Build Settings** (or Build Settings for short) is a Unity package by [Omiya Games](https://www.omiyagames.com/) that allows one to setup build settings for multiple platforms, then with one-click, prompt Unity to build to all of them.  This package supports building to:
 
-- Windows, both 32- and 64-bit
-- Mac OSX, 64-bit-only
-- Linux, 64-bit-only
-- WebGL
-- Android
-- iOS (xcode export)
+- Windows, both 32- and 64-bit.
+- Mac OSX, 64-bit-only.
+- Linux, 64-bit-only.
+- WebGL.
+- Android.
+- iOS (XCode project export).
 
 Other features this package supports:
 
+- Dynamic build naming.
 - Support building with debugging turned on.
 - Option to zip the build after being built.
 - For WebGL, supports [WebLocationChecker](https://openupm.com/packages/com.omiyagames.web.security/) integration:
@@ -20,6 +21,18 @@ Other features this package supports:
 - For Android build, if the user forgets to enter a keystore password, the build settings will prompt the user for it before building.
 
 A quick-start guide on how to use Build Settings is available here: [Documentation](https://omiyagames.github.io/omiya-games-builds/)
+
+## Known Issues
+
+As this package is in early stages of development, there are some known issues:
+
+- Dynamic build naming sometimes doesn't update properly.  For a work-around, add, then remove a literal field.
+- Build Settings does not wait until a zipping operation is completed or not.  While for most use cases, this is fine since building is such a lengthy process compared to zipping, behavior on what happens when two zipping operations runs at the same time has not been tested.
+- Build Settings does *not* check if libraries for building to a specific platform has been installed or not.
+- Similarly, Build Settings does *not* check if IL2CPP build libraries are installed or not.
+    - Note, Build Settings intentionally does *not* build with IL2CPP if building from the wrong OS (e.g. building a Mac OSX build from Windows) even if the settings is on, because Unity does not support cross-platform building with IL2CPP.  Rather, the issue is that Build Settings simply can't check if IL2CPP build support is installed on Unity at all.
+- General workflow improvements needed.
+    - Build naming in particular.
 
 ## Install
 
