@@ -13,6 +13,10 @@
 
 Other features this package supports:
 
+- Grouping:
+    - Grouped settings will be built under a nested folder.
+    - In addition, one can choose to build to a single group of settings.
+    - Groups can be nested as well.
 - Dynamic build naming.
 - Support building with debugging turned on.
 - Option to zip the build after being built.
@@ -21,18 +25,6 @@ Other features this package supports:
 - For Android build, if the user forgets to enter a keystore password, the build settings will prompt the user for it before building.
 
 A quick-start guide on how to use Build Settings is available here: [Documentation](https://omiyagames.github.io/omiya-games-builds/)
-
-## Known Issues
-
-As this package is in early stages of development, there are some known issues:
-
-- Dynamic build naming sometimes doesn't update properly.  For a work-around, add, then remove a literal field.
-- Build Settings does not wait until a zipping operation is completed or not.  While for most use cases, this is fine since building is such a lengthy process compared to zipping, behavior on what happens when two zipping operations runs at the same time has not been tested.
-- Build Settings does *not* check if libraries for building to a specific platform has been installed or not.
-- Similarly, Build Settings does *not* check if IL2CPP build libraries are installed or not.
-    - Note, Build Settings intentionally does *not* build with IL2CPP if building from the wrong OS (e.g. building a Mac OSX build from Windows) even if the settings is on, because Unity does not support cross-platform building with IL2CPP.  Rather, the issue is that Build Settings simply can't check if IL2CPP build support is installed on Unity at all.
-- General workflow improvements needed.
-    - Build naming in particular.
 
 ## Install
 
@@ -44,6 +36,20 @@ Then, to install this package, just run the following command at the root of you
 ```
 openupm add com.omiyagames.builds
 ```
+
+## [Known Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues)
+
+As this package is in early stages of development, there are some known issues.
+
+- Dynamic build naming sometimes doesn't update properly.  For a work-around, add, then remove a literal field.
+- Build Settings does not wait until a zipping operation is completed or not.  While for most use cases, this is fine since building is such a lengthy process compared to zipping, behavior on what happens when two zipping operations runs at the same time has not been tested.
+- Build Settings does *not* check if libraries for building to a specific platform has been installed or not.
+- Similarly, Build Settings does *not* check if IL2CPP build libraries are installed or not.
+    - Note, Build Settings intentionally does *not* build with IL2CPP if building from the wrong OS (e.g. building a Mac OSX build from Windows) even if the settings is on, because Unity does not support cross-platform building with IL2CPP.  Rather, the issue is that Build Settings simply can't check if IL2CPP build support is installed on Unity at all.
+- General workflow improvements needed.
+    - Build naming in particular.
+ 
+ If you find a new one, please file them under [Github project's Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues).
 
 ## Resources
 
