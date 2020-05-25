@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using System;
+using UnityEditor;
 
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <remarks>
-    /// <copyright file="CustomSetting.cs" company="Omiya Games">
+    /// <remarkds>
+    /// <copyright file="ScriptDefineSymbolsSettingDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -35,47 +35,30 @@ namespace OmiyaGames.Builds.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 11/20/2018<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
-    /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
-    /// <description>Converting file to a package.</description>
+    /// <description>Initial version.</description>
     /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Helper setting for arguments
+    /// Property drawer for <see cref="SceneSetting"/>.
     /// </summary>
-    [Serializable]
-    public class CustomSetting<TYPE>
+    [CustomPropertyDrawer(typeof(ScriptDefineSymbolsSetting))]
+    public class ScriptDefineSymbolsSettingDrawer : CustomSettingDrawer
     {
-        [SerializeField]
-        bool enable;
-        [SerializeField]
-        TYPE customValue;
-
-        public bool IsEnabled
+        protected override float CustomValueHeight(SerializedProperty property, GUIContent label)
         {
-            get
-            {
-                return enable;
-            }
+            return EditorGUIUtility.singleLineHeight;
         }
 
-        public TYPE CustomValue
+        protected override void DrawCustomValue(ref Rect position, SerializedProperty property, GUIContent label)
         {
-            get
-            {
-                return customValue;
-            }
+            Indent(ref position);
+            property.stringValue = EditorGUI.DelayedTextField(position, property.stringValue);
         }
     }
 }

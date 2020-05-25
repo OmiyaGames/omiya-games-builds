@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <remarks>
-    /// <copyright file="CustomSetting.cs" company="Omiya Games">
+    /// <copyright file="ScriptDefineSymbolsSetting.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -35,47 +34,21 @@ namespace OmiyaGames.Builds.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 11/20/2018<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
-    /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
-    /// <description>Converting file to a package.</description>
+    /// <description>Initial version.</description>
     /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Helper setting for arguments
+    /// Setting for macros to enable, overwriting Unity's
+    /// player settings.
     /// </summary>
     [Serializable]
-    public class CustomSetting<TYPE>
+    public class ScriptDefineSymbolsSetting : CustomSetting<string>
     {
-        [SerializeField]
-        bool enable;
-        [SerializeField]
-        TYPE customValue;
-
-        public bool IsEnabled
-        {
-            get
-            {
-                return enable;
-            }
-        }
-
-        public TYPE CustomValue
-        {
-            get
-            {
-                return customValue;
-            }
-        }
     }
 }

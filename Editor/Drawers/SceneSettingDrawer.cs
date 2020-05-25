@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
-using System;
+using UnityEditor;
+using OmiyaGames.Common.Editor;
 
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <remarks>
-    /// <copyright file="CustomSetting.cs" company="Omiya Games">
+    /// <remarkds>
+    /// <copyright file="SceneSettingDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -35,47 +36,60 @@ namespace OmiyaGames.Builds.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 11/20/2018<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
-    /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
-    /// <description>Converting file to a package.</description>
+    /// <description>Initial version.</description>
     /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Helper setting for arguments
+    /// Property drawer for <see cref="SceneSetting"/>.
     /// </summary>
-    [Serializable]
-    public class CustomSetting<TYPE>
+    [CustomPropertyDrawer(typeof(SceneSetting))]
+    public class SceneSettingDrawer : CustomSettingDrawer
     {
-        [SerializeField]
-        bool enable;
-        [SerializeField]
-        TYPE customValue;
+        private SerializedProperty property = null;
+        private UnityEditorInternal.ReorderableList list = null;
 
-        public bool IsEnabled
+        private void CreateList(SerializedProperty property)
         {
-            get
+            if ((list == null) || (this.property.serializedObject != property.serializedObject))
             {
-                return enable;
+                this.property = property;
+                list = new UnityEditorInternal.ReorderableList(property.serializedObject, property);
+                list.headerHeight = EditorHelpers.VerticalMargin;
+                list.drawElementCallback += DrawScene;
+                list.elementHeight = EditorHelpers.SingleLineHeight(EditorHelpers.VerticalMargin);
             }
         }
 
-        public TYPE CustomValue
+        private void DrawScene(Rect rect, int index, bool isActive, bool isFocused)
         {
-            get
+            if (property != null)
             {
-                return customValue;
+                SerializedProperty element = property.GetArrayElementAtIndex(index);
+                rect.y += EditorHelpers.VerticalMargin;
+                rect.height = EditorGUIUtility.singleLineHeight;
+
+                // Draw the scene field
+                ScenePathDrawer.DrawSceneAssetField(rect, element);
             }
+        }
+
+        protected override float CustomValueHeight(SerializedProperty property, GUIContent label)
+        {
+            CreateList(property);
+            return list.GetHeight();
+        }
+
+        protected override void DrawCustomValue(ref Rect position, SerializedProperty property, GUIContent label)
+        {
+            CreateList(property);
+            Indent(ref position);
+            list.DoList(position);
         }
     }
 }
