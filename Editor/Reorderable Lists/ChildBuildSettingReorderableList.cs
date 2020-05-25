@@ -71,19 +71,11 @@ namespace OmiyaGames.Builds.Editor
             // Setup all Methods
             AllMethods = new BuildSettingCreator[]
             {
-                #region Windows
+                #region Standalone
                 new BuildSettingCreator("Windows 64-bit", () => { CreateDesktopPlatformSettings<WindowsBuildSetting>("Windows 64-bit", IPlatformBuildSetting.Architecture.Build64Bit); }),
                 new BuildSettingCreator("Windows 32-bit", () => { CreateDesktopPlatformSettings<WindowsBuildSetting>("Windows 32-bit", IPlatformBuildSetting.Architecture.Build32Bit); }),
-                null,
-                #endregion
-
                 new BuildSettingCreator("Mac", () => { AddAndModify<MacBuildSetting>("Mac"); }),
-                null,
-
-                #region Linux
-                new BuildSettingCreator("Linux Universal", () => { CreateDesktopPlatformSettings<LinuxBuildSetting>("Linux", IPlatformBuildSetting.Architecture.BuildUniversal); }),
-                new BuildSettingCreator("Linux 64-bit", () => { CreateDesktopPlatformSettings<LinuxBuildSetting>("Linux 64-bit", IPlatformBuildSetting.Architecture.Build64Bit); }),
-                new BuildSettingCreator("Linux 32-bit", () => { CreateDesktopPlatformSettings<LinuxBuildSetting>("Linux 32-bit", IPlatformBuildSetting.Architecture.Build32Bit); }),
+                new BuildSettingCreator("Linux", () => { AddAndModify<LinuxBuildSetting>("Linux"); }),
                 null,
                 #endregion
 

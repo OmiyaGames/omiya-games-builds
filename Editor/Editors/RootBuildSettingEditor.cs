@@ -53,6 +53,7 @@ namespace OmiyaGames.Builds.Editor
         ChildBuildSettingReorderableList childBuildSettingsList;
 
         [MenuItem("Assets/Create/Omiya Games/Build Settings", priority = 200)]
+        [MenuItem("Tools/Omiya Games/Create/Build Settings")]
         public static RootBuildSetting CreateBuildSettings()
         {
             // Setup asset
