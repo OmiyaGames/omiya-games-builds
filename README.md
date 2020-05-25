@@ -1,50 +1,59 @@
-# [Omiya Games](https://www.omiyagames.com/) - Template Unity Package
+# [Omiya Games](https://www.omiyagames.com/) - Multiplatform Build Settings
 
-[![Template Unity Package documentation](https://github.com/OmiyaGames/template-unity-package/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/template-unity-package/) [![Mirroring](https://github.com/OmiyaGames/template-unity-package/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/template-unity-package) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
+[![Builds documentation](https://github.com/OmiyaGames/omiya-games-builds/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-builds/) [![Mirroring](https://github.com/OmiyaGames/omiya-games-builds/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/omiya-games-builds) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
 
-![Unity Package Manager](https://omiyagames.github.io/template-unity-package/resources/preview.png)
+**Multiplatform Build Settings** (or Build Settings for short) is a Unity package by [Omiya Games](https://www.omiyagames.com/) that allows one to setup build settings for multiple platforms, then with one-click, prompt Unity to build to all of them.  This package supports building to:
 
-**Template Unity Package** is a Github template [Omiya Games](https://www.omiyagames.com/) uses to start a new [Unity](https://unity.com/) package.  To use this template for your own purposes, we recommend:
+- Windows, both 32- and 64-bit.
+- Mac OSX, 64-bit-only.
+- Linux, 64-bit-only.
+- WebGL.
+- Android.
+- iOS (XCode project export).
 
-- Clicking on the green "Use this template" button to create a new online repository on Github directly, or
-- Click the "Releases" link, and download the latest archive as zip or gzip file.
+Other features this package supports:
 
-From there, consult the following documentation to get a better idea of what files should be edited and/or renamed, and how:
+- Grouping:
+    - Grouped settings will be built under a nested folder.
+    - In addition, one can choose to build to a single group of settings.
+    - Groups can be nested as well.
+- Dynamic build naming.
+- Support building with debugging turned on.
+- Option to zip the build after being built.
+- For WebGL, supports [WebLocationChecker](https://openupm.com/packages/com.omiyagames.web.security/) integration:
+    - WebGL settings can take multiple lists of valid domains; the build setting will then generate a [DomainList](https://openupm.com/packages/com.omiyagames.cryptography/) per list before zipping the build.
+- For Android build, if the user forgets to enter a keystore password, the build settings will prompt the user for it before building.
 
-- This project's [own documentation](https://omiyagames.github.io/template-unity-package/)
-- [*How to Split Up an Existing Unity Git Project into Smaller Unity Packages*](https://www.taroomiya.com/2020/04/29/how-to-split-up-an-existing-unity-git-project-into-smaller-unity-packages/) by [Taro Omiya](https://github.com/japtar10101)
-
-This package uses [DocFX](https://dotnet.github.io/docfx/) and Github Actions to auto-generate its documentation from both the comments in the source code and the Markdown files in the [`Documentation~`](/Documentation~) directory.  Consult the manual on [customizing documentation files](https://omiyagames.github.io/template-unity-package/manual/customizeDocumentation.html) for your own packages.  There is also has a pre-made [Doxygen](https://github.com/doxygen/doxygen) settings file in the same directory to run Doxywizard through.
+A quick-start guide on how to use Build Settings is available here: [Documentation](https://omiyagames.github.io/omiya-games-builds/)
 
 ## Install
 
-There are two common methods for installing this package.
-
-### Through [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui-giturl.html)
-
-Unity's own Package Manager supports [importing packages through a URL to a Git repo](https://docs.unity3d.com/Manual/upm-ui-giturl.html):
-
-1. First, on this repository page, click the "Clone or download" button, and copy over this repository's HTTPS URL.  
-2. Then click on the + button on the upper-left-hand corner of the Package Manager, select "Add package from git URL..." on the context menu, then paste this repo's URL!
-
-While easy and straightforward, this method has a few major downside: it does not support dependency resolution and package upgrading when a new version is released.  To add support for that, the following method is recommended:
-
-### Through [OpenUPM](https://openupm.com/)
-
-Installing via [OpenUPM's command line tool](https://openupm.com/) is recommended because it supports dependency resolution, upgrading, and downgrading this package.  Given this package is just an example, thought, it hadn't been added into OpenUPM yet.  So the rest of these instructions are hypothetical...for now...
-
-If you haven't already [installed OpenUPM](https://openupm.com/docs/getting-started.html#installing-openupm-cli), you can do so through Node.js's `npm` (obviously have Node.js installed in your system first):
+Installing via [OpenUPM's command line tool](https://openupm.com/) is *strongly* recommended over Unity's Package Manager because the former supports dependency resolution...and this package has a *lot* of dependencies!  If you haven't already [installed OpenUPM](https://openupm.com/docs/getting-started.html#installing-openupm-cli), you can do so through Node.js's `npm` (obviously have Node.js installed in your system first):
 ```
 npm install -g openupm-cli
 ```
 Then, to install this package, just run the following command at the root of your Unity project:
 ```
-openupm add com.omiyagames.template
+openupm add com.omiyagames.builds
 ```
+
+## [Known Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues)
+
+As this package is in early stages of development, there are some known issues.
+
+- Dynamic build naming sometimes doesn't update properly.  For a work-around, add, then remove a literal field.
+- Build Settings does not wait until a zipping operation is completed or not.  While for most use cases, this is fine since building is such a lengthy process compared to zipping, behavior on what happens when two zipping operations runs at the same time has not been tested.
+- Build Settings does *not* check if libraries for building to a specific platform has been installed or not.
+- Similarly, Build Settings does *not* check if IL2CPP build libraries are installed or not.
+    - Note, Build Settings intentionally does *not* build with IL2CPP if building from the wrong OS (e.g. building a Mac OSX build from Windows) even if the settings is on, because Unity does not support cross-platform building with IL2CPP.  Rather, the issue is that Build Settings simply can't check if IL2CPP build support is installed on Unity at all.
+- General workflow improvements needed.
+    - Build naming in particular.
+ 
+ If you find a new one, please file them under [Github project's Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues).
 
 ## Resources
 
-- [Documentation](https://omiyagames.github.io/template-unity-package/)
+- [Documentation](https://omiyagames.github.io/omiya-games-builds/)
 - [Change Log](/CHANGELOG.md)
 
 ## LICENSE

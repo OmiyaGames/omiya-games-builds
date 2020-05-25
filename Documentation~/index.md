@@ -1,92 +1,69 @@
-# [Omiya Games](https://www.omiyagames.com/) - Template Unity Package
+# [Omiya Games](https://www.omiyagames.com/) - Builds
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
 
-![Unity Package Manager](https://omiyagames.github.io/template-unity-package/resources/preview.png)
+**Multiplatform Build Settings** is a Unity package by [Omiya Games](https://www.omiyagames.com/) that allows one to setup build settings for multiple platforms, then with one-click, prompt Unity to build to all of them.  To quickly set one up, just do the following:
 
-**Template Unity Package** is a Github template [Omiya Games](https://www.omiyagames.com/) uses to start a new Unity package.  Developers intending to utilize this project as a starting point to develop their own package should [visit the Github page](https://github.com/OmiyaGames/template-unity-package) and:
+## Quick Setup
 
-- If they plan on creating a new online repository on Github directly, click on the green "Use this template" button to get started, or
-- Click the "Releases" link, and download the latest archive as zip or gzip file.
+### 1) Create Asset
 
-## Structure
+In Unity, select "Assets -> Create -> Omiya Games -> Build Settings" from the menu bar.  Alternatively, "Tools -> Omiya Games -> Create -> Build Settings" works as well.
 
-The project follows [Unity's recommend file and folder format](https://docs.unity3d.com/Manual/cus-layout.html), albeit with a few changes:
+![Create Menu Bar](https://omiyagames.github.io/omiya-games-builds/resources/create-context-menu.png)
 
-```
-<root>
-  ├── package.json
-  ├── README.md
-  ├── CHANGELOG.md
-  ├── LICENSE.md
-  ├── THIRD PARTY NOTICES.md
-  ├── .gitignore
-  ├── Runtime
-  │   ├── OmiyaGames.Template.asmdef
-  │   └── RuntimeExample.cs
-  ├── Editor
-  │   ├── OmiyaGames.Template.Editor.asmdef
-  │   └── EditorExample.cs
-  └── Tests
-  │   ├── Runtime
-  │   │   ├── OmiyaGames.Template.Tests.asmdef
-  │   │   └── RuntimeExampleTest.cs
-  │   └── Editor
-  │       ├── OmiyaGames.Template.Editor.Tests.asmdef
-  │       └── EditorExampleTest.cs
-  ├── Samples~
-  │   └── Example1
-  │       └── Example.txt
-  ├── Documentation~
-  |   ├── index.md
-  |   ├── Doxyfile
-  |   ├── docfx.json
-  |   ├── toc.yml
-  |   ├── filterConfig.yml
-  |   ├── manual
-  |   |   ├── toc.yml
-  |   |   ├── customizeDocumentation.md
-  |   |   ├── customizePackage.md
-  |   |   ├── customizeSamples.md
-  |   |   └── README.md
-  |   └── resources
-  |       ├── preview.png
-  |       └── README.md
-  └── .github
-      ├── FUNDING.yml
-      ├── ISSUE_TEMPLATE
-      |   ├── bug_report.md
-      |   ├── feature_request.md
-      |   ├── documentation-template.md
-      |   └── research_template.md
-      └── workflows
-          ├── documentation.yml
-          └── mirror.yml
-```
+### 2) Name the Asset
 
-## Common Text Formats
+Name the asset as you like.
 
-Note that this sprawling list of files contains a large number of common, human-readable (i.e. non-code, data-storing) text formats.  If some of these file extensions are unfamiliar, the following resources describes how to edit and format the most common text files used in this project:
+![Rename Asset](https://omiyagames.github.io/omiya-games-builds/resources/change-file-name.png)
 
-- [JSON (`*.json, *.asmdef`)](https://www.json.org/json-en.html)
-    - Although the [Wikipedia page](https://en.wikipedia.org/wiki/JSON#Data_types_and_syntax) might be easier understand.
-- [YAML (`*.yml`)](https://yaml.org/spec/1.2/spec.html#Preview)
-    - Again, the [Wikipedia page](https://en.wikipedia.org/wiki/YAML#Syntax).
-- [Markdown (`*.md`)](https://www.markdownguide.org/getting-started/)
-    - They also provide [a cheatsheet](https://www.markdownguide.org/cheat-sheet)!
-- [Bonus: `.gitignore`](https://git-scm.com/docs/gitignore#_pattern_format)
+### 3) Select a Folder to Build To
 
-## About the Manual
+In the Project window, click on the asset if it isn't already to change the Inspector.
 
-As many of these files are intended to be edited and/or renamed, this manual has been split up into three parts.  The links below briefly covers how to update this package's files for your own package development.
+Under the `Build Settings` group, click the `Browse...` button and select a folder to build to.  Note that this fills in the field with an absolute path to a folder.  Alternatively, the text field can be filled manually: relative paths can be entered this way.  If so, the path will be relative to the root of the project (where the Assets, Packages, and Project Settings folders are).
 
-- [Customizing Package Files](https://omiyagames.github.io/template-unity-package/manual/customizePackage.html)
-- [Adding Source Code and Assets](https://omiyagames.github.io/template-unity-package/manual/customizeSource.html)
-- [Adding Importable Assets](https://omiyagames.github.io/template-unity-package/manual/customizeSamples.html)
-- [Customizing Documentation](https://omiyagames.github.io/template-unity-package/manual/customizeDocumentation.html)
+![Root Build Folder field](https://omiyagames.github.io/omiya-games-builds/resources/root-build-folder.png)
 
-As an aside, [the author](https://github.com/japtar10101) of this manual provided a more thorough guide with graphics on their own blog: [*How to Split Up an Existing Unity Git Project into Smaller Unity Packages*](https://www.taroomiya.com/2020/04/29/how-to-split-up-an-existing-unity-git-project-into-smaller-unity-packages/).  It's worth reviewing if the manual seems a little sparse.  Finally, changes in the project is documented under the [change log page](https://omiyagames.github.io/template-unity-package/manual/changelog.html).
+### 4) Add Platforms to Build for
+
+Under the `Platforms` group, click the plus button below the `All Settings` list to add a desired platform.  One may add as many platforms as they like.
+
+![Add Platform](https://omiyagames.github.io/omiya-games-builds/resources/add-platforms.png)
+
+### 5) Edit Each Platform Settings
+
+Each setting listed in the `All Settings` can be edited individually by clicking on the edit button.
+
+![Edit Platform](https://omiyagames.github.io/omiya-games-builds/resources/edit-platform.png)
+
+Note that the list of options will change based on platform.  Options common between each platform includes being able to change the name of the build and folder name, as well as an option to zip each one.
+
+Finally, clicking the breadcrumb at the top of the Inspector will return the insepctor back to the original root setting.
+
+![Breadcrumb](https://omiyagames.github.io/omiya-games-builds/resources/breadcrumb.png)
+
+### 6) Click `Build All`
+
+Once all the settings are setup and ready, just click `Build All` at the bottom of the Inspector!
+
+![Build All](https://omiyagames.github.io/omiya-games-builds/resources/build-all.png)
+
+## [Known Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues)
+
+As this package is in early stages of development, there are some known issues.
+
+- Dynamic build naming sometimes doesn't update properly.  For a work-around, add, then remove a literal field.
+- Build Settings does not wait until a zipping operation is completed or not.  While for most use cases, this is fine since building is such a lengthy process compared to zipping, behavior on what happens when two zipping operations runs at the same time has not been tested.
+- Build Settings does *not* check if libraries for building to a specific platform has been installed or not.
+- Similarly, Build Settings does *not* check if IL2CPP build libraries are installed or not.
+    - Note, Build Settings intentionally does *not* build with IL2CPP if building from the wrong OS (e.g. building a Mac OSX build from Windows) even if the settings is on, because Unity does not support cross-platform building with IL2CPP.  Rather, the issue is that Build Settings simply can't check if IL2CPP build support is installed on Unity at all.
+- General workflow improvements needed.
+    - Build naming in particular.
+ 
+ If you find a new one, please file them under [Github project's Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues).
 
 ## LICENSE
 
-Overall package is licensed under [MIT](https://github.com/OmiyaGames/template-unity-package/blob/master/LICENSE.md), unless otherwise noted in the [3rd party licenses](https://github.com/OmiyaGames/template-unity-package/blob/master/THIRD%20PARTY%20NOTICES.md) file and/or source code.
+Overall package is licensed under [MIT](https://github.com/OmiyaGames/omiya-games-builds/blob/master/LICENSE.md), unless otherwise noted in the [3rd party licenses](https://github.com/OmiyaGames/omiya-games-builds/blob/master/THIRD%20PARTY%20NOTICES.md) file and/or source code.
