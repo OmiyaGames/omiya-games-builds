@@ -20,19 +20,35 @@ Name the asset as you like.
 
 ### 3) Select a Folder to Build To
 
-TODO
+In the Project window, click on the asset if it isn't already to change the Inspector.
+
+Under the `Build Settings` group, click the `Browse...` button and select a folder to build to.  Note that this fills in the field with an absolute path to a folder.  Alternatively, the text field can be filled manually: relative paths can be entered this way.  If so, the path will be relative to the root of the project (where the Assets, Packages, and Project Settings folders are).
+
+![Root Build Folder field](https://omiyagames.github.io/omiya-games-builds/resources/root-build-folder.png)
 
 ### 4) Add Platforms to Build for
 
-TODO
+Under the `Platforms` group, click the plus button below the `All Settings` list to add a desired platform.  One may add as many platforms as they like.
+
+![Add Platform](https://omiyagames.github.io/omiya-games-builds/resources/add-platforms.png)
 
 ### 5) Edit Each Platform Settings
 
-TODO
+Each setting listed in the `All Settings` can be edited individually by clicking on the edit button.
+
+![Edit Platform](https://omiyagames.github.io/omiya-games-builds/resources/edit-platform.png)
+
+Note that the list of options will change based on platform.  Options common between each platform includes being able to change the name of the build and folder name, as well as an option to zip each one.
+
+Finally, clicking the breadcrumb at the top of the Inspector will return the insepctor back to the original root setting.
+
+![Breadcrumb](https://omiyagames.github.io/omiya-games-builds/resources/breadcrumb.png)
 
 ### 6) Click `Build All`
 
-TODO
+Once all the settings are setup and ready, just click `Build All` at the bottom of the Inspector!
+
+![Build All](https://omiyagames.github.io/omiya-games-builds/resources/build-all.png)
 
 ## [Known Issues](https://github.com/OmiyaGames/omiya-games-web-security/issues)
 
