@@ -7,10 +7,11 @@ using OmiyaGames.Common.Editor;
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ChildBuildSettingReorderableList.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2018 Omiya Games
+    /// Copyright (c) 2014-2020 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -30,8 +31,28 @@ namespace OmiyaGames.Builds.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>11/03/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 11/03/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial verison.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 5/24/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Converting file to a package.</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Helper class to generate a reorderable list.
@@ -82,7 +103,7 @@ namespace OmiyaGames.Builds.Editor
                 new BuildSettingCreator("WebGL", () => { CreateWebGLSettings(); }),
                 null,
 
-                // FIXME: add UWP support
+                // TODO: add UWP support
                 #region Mobile
                 new BuildSettingCreator("iOS", () => { AddAndModify<IosBuildSetting>("iOS"); }),
                 new BuildSettingCreator("Android", () => { AddAndModify<AndroidBuildSetting>("Android"); }),
@@ -90,7 +111,7 @@ namespace OmiyaGames.Builds.Editor
                 null,
                 #endregion
 
-                // FIXME: add Facebook support
+                // TODO: add Facebook support
                 #region Facebook
                 //new BuildSettingCreator("Facebook Gameroom, WebGL", () => { CreateWebGLSettings(); }),
                 //new BuildSettingCreator("Facebook Gameroom, Windows 64-bit", () => { CreateDesktopPlatformSettings<WindowsBuildSetting>("Windows 64-bit", IPlatformBuildSetting.Architecture.Build64Bit); }),

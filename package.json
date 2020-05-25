@@ -29,7 +29,8 @@
     "Tool",
     "Build",
     "Platform",
-    "Multiplatform"
+    "Multiplatform",
+    "Continuous Integration"
   ],
   "scopedRegistries": [
     {

@@ -1,10 +1,10 @@
-﻿using UnityEditor;
+﻿using System;
 
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
     /// <remarks>
-    /// <copyright file="WindowsBuildSettingEditor.cs" company="Omiya Games">
+    /// <copyright file="SceneSetting.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -34,44 +34,21 @@ namespace OmiyaGames.Builds.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 11/21/2015<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
-    /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
-    /// <description>Converting file to a package.</description>
+    /// <description>Initial version.</description>
     /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Editor script for <see cref="WindowsBuildSetting"/>
+    /// Setting for a list of scene to build,
+    /// overwriting Unity's own build settings.
     /// </summary>
-    [CustomEditor(typeof(WindowsBuildSetting))]
-    public class WindowsBuildSettingEditor : IStandaloneBuildSettingEditor
+    [Serializable]
+    public class SceneSetting : CustomSetting<string[]>
     {
-        private SerializedProperty includePdbFles;
-        // FIXME: do more research on the Facebook builds
-        //private SerializedProperty forFacebook;
-
-        public override void OnEnable()
-        {
-            base.OnEnable();
-            includePdbFles = serializedObject.FindProperty("includePdbFles");
-            //forFacebook = serializedObject.FindProperty("forFacebook");
-        }
-
-        protected override void DrawPlatformSpecificSettings()
-        {
-            base.DrawPlatformSpecificSettings();
-            EditorGUILayout.PropertyField(includePdbFles);
-            //EditorGUILayout.PropertyField(forFacebook);
-        }
     }
 }

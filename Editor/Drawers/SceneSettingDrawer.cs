@@ -1,10 +1,12 @@
-﻿using UnityEditor;
+﻿using UnityEngine;
+using UnityEditor;
+using OmiyaGames.Common.Editor;
 
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <remarks>
-    /// <copyright file="WindowsBuildSettingEditor.cs" company="Omiya Games">
+    /// <remarkds>
+    /// <copyright file="SceneSettingDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -34,44 +36,60 @@ namespace OmiyaGames.Builds.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 11/21/2015<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
-    /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
-    /// <description>Converting file to a package.</description>
+    /// <description>Initial version.</description>
     /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Editor script for <see cref="WindowsBuildSetting"/>
+    /// Property drawer for <see cref="SceneSetting"/>.
     /// </summary>
-    [CustomEditor(typeof(WindowsBuildSetting))]
-    public class WindowsBuildSettingEditor : IStandaloneBuildSettingEditor
+    [CustomPropertyDrawer(typeof(SceneSetting))]
+    public class SceneSettingDrawer : CustomSettingDrawer
     {
-        private SerializedProperty includePdbFles;
-        // FIXME: do more research on the Facebook builds
-        //private SerializedProperty forFacebook;
+        private SerializedProperty property = null;
+        private UnityEditorInternal.ReorderableList list = null;
 
-        public override void OnEnable()
+        private void CreateList(SerializedProperty property)
         {
-            base.OnEnable();
-            includePdbFles = serializedObject.FindProperty("includePdbFles");
-            //forFacebook = serializedObject.FindProperty("forFacebook");
+            if ((list == null) || (this.property.serializedObject != property.serializedObject))
+            {
+                this.property = property;
+                list = new UnityEditorInternal.ReorderableList(property.serializedObject, property);
+                list.headerHeight = EditorHelpers.VerticalMargin;
+                list.drawElementCallback += DrawScene;
+                list.elementHeight = EditorHelpers.SingleLineHeight(EditorHelpers.VerticalMargin);
+            }
         }
 
-        protected override void DrawPlatformSpecificSettings()
+        private void DrawScene(Rect rect, int index, bool isActive, bool isFocused)
         {
-            base.DrawPlatformSpecificSettings();
-            EditorGUILayout.PropertyField(includePdbFles);
-            //EditorGUILayout.PropertyField(forFacebook);
+            if (property != null)
+            {
+                SerializedProperty element = property.GetArrayElementAtIndex(index);
+                rect.y += EditorHelpers.VerticalMargin;
+                rect.height = EditorGUIUtility.singleLineHeight;
+
+                // Draw the scene field
+                ScenePathDrawer.DrawSceneAssetField(rect, element);
+            }
+        }
+
+        protected override float CustomValueHeight(SerializedProperty property, GUIContent label)
+        {
+            CreateList(property);
+            return list.GetHeight();
+        }
+
+        protected override void DrawCustomValue(ref Rect position, SerializedProperty property, GUIContent label)
+        {
+            CreateList(property);
+            Indent(ref position);
+            list.DoList(position);
         }
     }
 }

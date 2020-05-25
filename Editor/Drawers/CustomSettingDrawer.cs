@@ -5,10 +5,11 @@ using OmiyaGames.Common.Editor;
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarkds>
     /// <copyright file="CustomSettingDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2018 Omiya Games
+    /// Copyright (c) 2014-2020 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -28,13 +29,32 @@ namespace OmiyaGames.Builds.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>11/20/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 11/20/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial verison.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 5/24/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Converting file to a package.</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Property drawer for <code>CustomSetting</code>.
+    /// Property drawer for <see cref="CustomSetting{TYPE}"/>.
     /// </summary>
-    /// <seealso cref="CustomSetting{TYPE}"/>
     public abstract class CustomSettingDrawer : PropertyDrawer
     {
         protected static void Indent(ref Rect position)
@@ -93,84 +113,6 @@ namespace OmiyaGames.Builds.Editor
 
             // End this property
             EditorGUI.EndProperty();
-        }
-    }
-
-    /// <summary>
-    /// Property drawer for <code>SceneSettings</code>.
-    /// </summary>
-    /// <seealso cref="SceneSetting"/>
-    [CustomPropertyDrawer(typeof(SceneSetting))]
-    public class SceneSettingDrawer : CustomSettingDrawer
-    {
-        const float ButtonWidth = 64f;
-        const float Space = 4f;
-        static readonly string[] SceneFileFilter = new string[]
-        {
-            "Scene files", "unity",
-            "All files", "*"
-        };
-
-        private SerializedProperty property = null;
-        private UnityEditorInternal.ReorderableList list = null;
-
-        private void CreateList(SerializedProperty property)
-        {
-            if ((list == null) || (this.property.serializedObject != property.serializedObject))
-            {
-                this.property = property;
-                list = new UnityEditorInternal.ReorderableList(property.serializedObject, property);
-                list.headerHeight = EditorHelpers.VerticalMargin;
-                list.drawElementCallback += DrawScene;
-                list.elementHeight = EditorHelpers.SingleLineHeight(EditorHelpers.VerticalMargin);
-            }
-        }
-
-        private void DrawScene(Rect rect, int index, bool isActive, bool isFocused)
-        {
-            if (property != null)
-            {
-                SerializedProperty element = property.GetArrayElementAtIndex(index);
-                rect.y += EditorHelpers.VerticalMargin;
-                rect.height = EditorGUIUtility.singleLineHeight;
-
-                // Draw the scene field
-                ScenePathDrawer.DrawSceneAssetField(rect, element);
-            }
-        }
-
-        protected override float CustomValueHeight(SerializedProperty property, GUIContent label)
-        {
-            float height = EditorGUIUtility.singleLineHeight;
-            CreateList(property);
-            height = list.GetHeight();
-            return height;
-        }
-
-        protected override void DrawCustomValue(ref Rect position, SerializedProperty property, GUIContent label)
-        {
-            CreateList(property);
-            Indent(ref position);
-            list.DoList(position);
-        }
-    }
-
-    /// <summary>
-    /// Property drawer for <code>SceneSettings</code>.
-    /// </summary>
-    /// <seealso cref="SceneSetting"/>
-    [CustomPropertyDrawer(typeof(ScriptDefineSymbolsSetting))]
-    public class ScriptDefineSymbolsSettingDrawer : CustomSettingDrawer
-    {
-        protected override float CustomValueHeight(SerializedProperty property, GUIContent label)
-        {
-            return EditorGUIUtility.singleLineHeight;
-        }
-
-        protected override void DrawCustomValue(ref Rect position, SerializedProperty property, GUIContent label)
-        {
-            Indent(ref position);
-            property.stringValue = EditorGUI.DelayedTextField(position, property.stringValue);
         }
     }
 }

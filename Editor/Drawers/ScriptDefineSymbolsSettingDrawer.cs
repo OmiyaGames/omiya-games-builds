@@ -1,10 +1,11 @@
-﻿using UnityEditor;
+﻿using UnityEngine;
+using UnityEditor;
 
 namespace OmiyaGames.Builds.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <remarks>
-    /// <copyright file="WindowsBuildSettingEditor.cs" company="Omiya Games">
+    /// <remarkds>
+    /// <copyright file="ScriptDefineSymbolsSettingDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -34,44 +35,30 @@ namespace OmiyaGames.Builds.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 11/21/2015<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
-    /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
-    /// <description>Converting file to a package.</description>
+    /// <description>Initial version.</description>
     /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Editor script for <see cref="WindowsBuildSetting"/>
+    /// Property drawer for <see cref="SceneSetting"/>.
     /// </summary>
-    [CustomEditor(typeof(WindowsBuildSetting))]
-    public class WindowsBuildSettingEditor : IStandaloneBuildSettingEditor
+    [CustomPropertyDrawer(typeof(ScriptDefineSymbolsSetting))]
+    public class ScriptDefineSymbolsSettingDrawer : CustomSettingDrawer
     {
-        private SerializedProperty includePdbFles;
-        // FIXME: do more research on the Facebook builds
-        //private SerializedProperty forFacebook;
-
-        public override void OnEnable()
+        protected override float CustomValueHeight(SerializedProperty property, GUIContent label)
         {
-            base.OnEnable();
-            includePdbFles = serializedObject.FindProperty("includePdbFles");
-            //forFacebook = serializedObject.FindProperty("forFacebook");
+            return EditorGUIUtility.singleLineHeight;
         }
 
-        protected override void DrawPlatformSpecificSettings()
+        protected override void DrawCustomValue(ref Rect position, SerializedProperty property, GUIContent label)
         {
-            base.DrawPlatformSpecificSettings();
-            EditorGUILayout.PropertyField(includePdbFles);
-            //EditorGUILayout.PropertyField(forFacebook);
+            Indent(ref position);
+            property.stringValue = EditorGUI.DelayedTextField(position, property.stringValue);
         }
     }
 }
