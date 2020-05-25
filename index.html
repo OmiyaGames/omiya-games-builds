@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Omiya Games - Builds | Builds documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Omiya Games - Builds | Builds documentation ">
+    <meta name="generator" content="docfx 2.53.1.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="omiya-gameshttpswwwomiyagamescom---builds"><a href="https://www.omiyagames.com/">Omiya Games</a> - Builds</h1>
+
+<p><a href="https://ko-fi.com/I3I51KS8F"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi"></a></p>
+<p><strong>Multiplatform Build Settings</strong> is a Unity package by <a href="https://www.omiyagames.com/">Omiya Games</a> that allows one to setup build settings for multiple platforms, then with one-click, prompt Unity to build to all of them.  To quickly set one up, just do the following:</p>
+<h2 id="quick-setup">Quick Setup</h2>
+<h3 id="1-create-asset">1) Create Asset</h3>
+<p>In Unity, select &quot;Assets -&gt; Create -&gt; Omiya Games -&gt; Build Settings&quot; from the menu bar.  Alternatively, &quot;Tools -&gt; Omiya Games -&gt; Create -&gt; Build Settings&quot; works as well.</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/create-context-menu.png" alt="Create Menu Bar"></p>
+<h3 id="2-name-the-asset">2) Name the Asset</h3>
+<p>Name the asset as you like.</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/change-file-name.png" alt="Rename Asset"></p>
+<h3 id="3-select-a-folder-to-build-to">3) Select a Folder to Build To</h3>
+<p>In the Project window, click on the asset if it isn&#39;t already to change the Inspector.</p>
+<p>Under the <code>Build Settings</code> group, click the <code>Browse...</code> button and select a folder to build to.  Note that this fills in the field with an absolute path to a folder.  Alternatively, the text field can be filled manually: relative paths can be entered this way.  If so, the path will be relative to the root of the project (where the Assets, Packages, and Project Settings folders are).</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/root-build-folder.png" alt="Root Build Folder field"></p>
+<h3 id="4-add-platforms-to-build-for">4) Add Platforms to Build for</h3>
+<p>Under the <code>Platforms</code> group, click the plus button below the <code>All Settings</code> list to add a desired platform.  One may add as many platforms as they like.</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/add-platforms.png" alt="Add Platform"></p>
+<h3 id="5-edit-each-platform-settings">5) Edit Each Platform Settings</h3>
+<p>Each setting listed in the <code>All Settings</code> can be edited individually by clicking on the edit button.</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/edit-platform.png" alt="Edit Platform"></p>
+<p>Note that the list of options will change based on platform.  Options common between each platform includes being able to change the name of the build and folder name, as well as an option to zip each one.</p>
+<p>Finally, clicking the breadcrumb at the top of the Inspector will return the insepctor back to the original root setting.</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/breadcrumb.png" alt="Breadcrumb"></p>
+<h3 id="6-click-build-all">6) Click <code>Build All</code></h3>
+<p>Once all the settings are setup and ready, just click <code>Build All</code> at the bottom of the Inspector!</p>
+<p><img src="https://omiyagames.github.io/omiya-games-builds/resources/build-all.png" alt="Build All"></p>
+<h2 id="known-issueshttpsgithubcomomiyagamesomiya-games-web-securityissues"><a href="https://github.com/OmiyaGames/omiya-games-web-security/issues">Known Issues</a></h2>
+<p>As this package is in early stages of development, there are some known issues.</p>
+<ul>
+<li>Dynamic build naming sometimes doesn&#39;t update properly.  For a work-around, add, then remove a literal field.</li>
+<li>Build Settings does not wait until a zipping operation is completed or not.  While for most use cases, this is fine since building is such a lengthy process compared to zipping, behavior on what happens when two zipping operations runs at the same time has not been tested.</li>
+<li>Build Settings does <em>not</em> check if libraries for building to a specific platform has been installed or not.</li>
+<li>Similarly, Build Settings does <em>not</em> check if IL2CPP build libraries are installed or not.<ul>
+<li>Note, Build Settings intentionally does <em>not</em> build with IL2CPP if building from the wrong OS (e.g. building a Mac OSX build from Windows) even if the settings is on, because Unity does not support cross-platform building with IL2CPP.  Rather, the issue is that Build Settings simply can&#39;t check if IL2CPP build support is installed on Unity at all.</li>
+</ul>
+</li>
+<li><p>General workflow improvements needed.</p>
+<ul>
+<li>Build naming in particular.</li>
+</ul>
+<p>If you find a new one, please file them under <a href="https://github.com/OmiyaGames/omiya-games-web-security/issues">Github project&#39;s Issues</a>.</p>
+</li>
+</ul>
+<h2 id="license">LICENSE</h2>
+<p>Overall package is licensed under <a href="https://github.com/OmiyaGames/omiya-games-builds/blob/master/LICENSE.md">MIT</a>, unless otherwise noted in the <a href="https://github.com/OmiyaGames/omiya-games-builds/blob/master/THIRD%20PARTY%20NOTICES.md">3rd party licenses</a> file and/or source code.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OmiyaGames/omiya-games-builds/blob/master/Documentation~/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2020 Omiya Games
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
