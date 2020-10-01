@@ -43,14 +43,20 @@ namespace OmiyaGames.Builds.Editor
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
+    /// </item><item>
     /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>Converting file to a package.</description>
+    /// </item><item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.1-preview.1<br/>
+    /// <strong>Date:</strong> 10/1/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Using the new <seealso cref="WebDomainVerifier"/>.</description>
     /// </item>
     /// </list>
     /// </remarks>
@@ -60,7 +66,8 @@ namespace OmiyaGames.Builds.Editor
     /// </summary>
     public class HostArchiveSetting : IChildBuildSetting
     {
-        //[Header("Generated File Name")]
+        public const string DefaultLocalDomainListPath = "domains";
+
         [SerializeField]
         IPlatformBuildSetting.ArchiveSettings archiveSettings = new IPlatformBuildSetting.ArchiveSettings(
             IPlatformBuildSetting.ArchiveType.Zip,
@@ -74,33 +81,62 @@ namespace OmiyaGames.Builds.Editor
             )
         );
 
-        //[Header("Archive Location")]
-        [SerializeField]
-        WebLocationChecker webLocationChecker;
-
-        //[Header("Archive Content")]
         [SerializeField]
         bool includeIndexHtml = true;
+        [UnityEngine.Serialization.FormerlySerializedAs("webLocationChecker")]
         [SerializeField]
-        StringCryptographer domainEncrypter;
+        WebDomainVerifier webDomainVerifier;
+        [SerializeField]
+        string localDomainListPath = DefaultLocalDomainListPath;
         [SerializeField]
         string[] acceptedDomains;
 
         #region Properties
+        /// <summary>
+        /// Indicates whether this setting will be processed for building or not.
+        /// </summary>
         public bool IsEnabled
         {
             get => archiveSettings.IsEnabled;
             set => archiveSettings.IsEnabled = value;
         }
 
+        /// <summary>
+        /// Indicates whether the HTML file will be included as part of the zipping process.
+        /// </summary>
         public bool IncludeIndexHtml
         {
             get => includeIndexHtml;
         }
 
-        public StringCryptographer DomainEncrypter
+        /// <summary>
+        /// The encrypter of the list of domains. Returns <c>null</c> if domain list is not meant to be encrypted.
+        /// </summary>
+        public StringCryptographer DomainEncrypter => webDomainVerifier?.DomainDecrypter;
+
+        public bool IsLocalPathInWebDomainVerifierDefined => ((webDomainVerifier != null) && (string.IsNullOrEmpty(webDomainVerifier?.RemoteDomainListUrl) == false) && (webDomainVerifier.RemoteDomainListUrl.Contains("://") == false));
+
+        /// <summary>
+        /// The path local to web build where the domain list will be created.
+        /// </summary>
+        public string LocalDomainListPath
         {
-            get => domainEncrypter;
+            get
+            {
+                // Set to default return value
+                string returnPath = DefaultLocalDomainListPath;
+
+                // Check if the domain verifier already has a local path
+                if (IsLocalPathInWebDomainVerifierDefined == true)
+                {
+                    returnPath = webDomainVerifier.RemoteDomainListUrl;
+                }
+                else if (string.IsNullOrEmpty(localDomainListPath) == false)
+                {
+                    returnPath = localDomainListPath;
+                }
+                return returnPath;
+            }
         }
 
         public string[] AcceptedDomains
@@ -112,11 +148,6 @@ namespace OmiyaGames.Builds.Editor
         public IPlatformBuildSetting.ArchiveSettings ArchiveSettings
         {
             get => archiveSettings;
-        }
-
-        public WebLocationChecker WebLocationChecker
-        {
-            get => webLocationChecker;
         }
 
         internal override int MaxNumberOfResults => 1;
@@ -152,7 +183,7 @@ namespace OmiyaGames.Builds.Editor
                 builder.AppendLine("Field 'Parent' does not contain a WebGL build setting in " + name);
                 returnFlag = false;
             }
-            if (webLocationChecker == null)
+            if (webDomainVerifier == null)
             {
                 builder.AppendLine("Field 'Web Location Checker' is not set in " + name);
                 returnFlag = false;
@@ -175,14 +206,15 @@ namespace OmiyaGames.Builds.Editor
             // Append the parent path
             StringBuilder builder = new StringBuilder();
             string folderName = ((WebGlBuildSetting)Parent).GetBuildFolderName(results);
+            string pathToBuildTo = LocalDomainListPath;
 
             // Append the file path (local to parent)
             builder.Clear();
             builder.Append(folderName);
-            AppendFilePath(builder, Helpers.PathDivider, WebLocationChecker.RemoteDomainListUrl);
+            AppendFilePath(builder, Helpers.PathDivider, pathToBuildTo);
 
             // Remove the filename from string builder
-            string fileName = Path.GetFileName(WebLocationChecker.RemoteDomainListUrl);
+            string fileName = Path.GetFileName(pathToBuildTo);
             builder.Remove((builder.Length - fileName.Length), fileName.Length);
             folderName = builder.ToString();
 
@@ -236,7 +268,7 @@ namespace OmiyaGames.Builds.Editor
 
         public void Build(WebGlBuildSetting parent, BuildPlayersResult results)
         {
-            if(parent != null)
+            if (parent != null)
             {
                 Build(results);
             }
