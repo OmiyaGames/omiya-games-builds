@@ -1,10 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Globalization;
 using UnityEngine;
 using UnityEditor;
+using OmiyaGames.Web;
 
 namespace OmiyaGames.Builds.Editor
 {
@@ -104,25 +102,6 @@ namespace OmiyaGames.Builds.Editor
         public delegate string GetText(string text, IBuildSetting setting);
 
         /// <summary>
-        /// The maximum WebGL build name
-        /// </summary>
-        public const int MaxSlugLength = 45;
-        /// <summary>
-        /// Set of invalid folder chars: "/, \, :, *, ?, ", <, >, and |."
-        /// </summary>
-        public static readonly HashSet<char> InvalidFileNameCharactersSet = new HashSet<char>()
-        {
-            '\\',
-            '/',
-            ':',
-            '*',
-            '?',
-            '"',
-            '<',
-            '>',
-            '|'
-        };
-        /// <summary>
         /// Map from PrefillType to method
         /// </summary>
         public static readonly Dictionary<PrefillType, GetText> TextMapper = new Dictionary<PrefillType, GetText>()
@@ -206,7 +185,7 @@ namespace OmiyaGames.Builds.Editor
             GetText method;
             foreach (Prefill name in names)
             {
-                if(TextMapper.TryGetValue(name.Type, out method) == true)
+                if (TextMapper.TryGetValue(name.Type, out method) == true)
                 {
                     builder.Append(method(name.Text, setting));
                 }
@@ -214,57 +193,16 @@ namespace OmiyaGames.Builds.Editor
 
             // Remove invalid characters
             string returnString = builder.ToString();
-            returnString = RemoveDiacritics(builder, returnString);
+            returnString = Helpers.RemoveDiacritics(returnString, builder);
 
             // Check if this needs to be a slug
             if (asSlug == true)
             {
-                returnString = GenerateSlug(returnString);
+                returnString = UrlHelpers.GenerateSlug(returnString);
             }
             return returnString;
         }
 
-        /// <summary>
-        /// Taken from http://predicatet.blogspot.com/2009/04/improved-c-slug-generator-or-how-to.html
-        /// </summary>
-        public static string GenerateSlug(string originalString)
-        {
-            // Remove invalid chars
-            string returnSlug = Regex.Replace(originalString.ToLower(), @"[^a-z0-9\s-.]", "");
 
-            // Convert multiple spaces into one space
-            returnSlug = Regex.Replace(returnSlug, @"\s+", " ").Trim();
-
-            // Trim the length of the slug down to MaxSlugLength characters
-            if (returnSlug.Length > MaxSlugLength)
-            {
-                returnSlug = returnSlug.Substring(0, MaxSlugLength).Trim();
-            }
-
-            // Replace spaces with hyphens
-            returnSlug = Regex.Replace(returnSlug, @"\s", "-");
-
-            return returnSlug;
-        }
-
-        /// <summary>
-        /// Taken from http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html
-        /// </summary>
-        public static string RemoveDiacritics(StringBuilder stringBuilder, string text)
-        {
-            string normalizedString = text.Normalize(NormalizationForm.FormD);
-            stringBuilder.Clear();
-
-            foreach (char c in normalizedString)
-            {
-                UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-                if ((unicodeCategory != UnicodeCategory.NonSpacingMark) && (InvalidFileNameCharactersSet.Contains(c) == false))
-                {
-                    stringBuilder.Append(c);
-                }
-            }
-
-            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
-        }
     }
 }
