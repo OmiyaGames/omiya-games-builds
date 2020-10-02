@@ -1,5 +1,9 @@
 # Change Log:
 
+## 0.2.0-preview.1
+
+- Enhancment: adding support for new [`WebDomainVerifier`](https://github.com/OmiyaGames/omiya-games-web-security/blob/master/Runtime/WebDomainVerifier.cs)
+
 ## 0.1.0-preview.1
 
 - Initial release:
