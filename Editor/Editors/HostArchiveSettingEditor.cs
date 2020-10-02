@@ -44,14 +44,20 @@ namespace OmiyaGames.Builds.Editor
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
+    /// </item><item>
     /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>Converting file to a package.</description>
+    /// </item><item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.1-preview.1<br/>
+    /// <strong>Date:</strong> 10/1/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Updating editor with new fields.</description>
     /// </item>
     /// </list>
     /// </remarks>
@@ -70,12 +76,14 @@ namespace OmiyaGames.Builds.Editor
 
         // Domain list location
         private AnimBool domainListLocationAnimation;
-        private SerializedProperty webLocationChecker;
+        private SerializedProperty webDomainVerifier;
+
+        private AnimBool domainListPathAnimation;
+        private SerializedProperty domainListPath;
 
         // Archive contents
         private AnimBool contentAnimation;
         private SerializedProperty includeIndexHtml;
-        private SerializedProperty domainEncrypter;
         private SerializedProperty acceptedDomains;
         private ReorderableList domainList;
 
@@ -92,7 +100,6 @@ namespace OmiyaGames.Builds.Editor
 
             // Archive contents
             includeIndexHtml = serializedObject.FindProperty("includeIndexHtml");
-            domainEncrypter = serializedObject.FindProperty("domainEncrypter");
             acceptedDomains = serializedObject.FindProperty("acceptedDomains");
             contentAnimation = new AnimBool(true, Repaint);
 
@@ -102,8 +109,11 @@ namespace OmiyaGames.Builds.Editor
             domainList.drawElementCallback = DrawDomainListElement;
 
             // Setup domain list location
-            webLocationChecker = serializedObject.FindProperty("webLocationChecker");
+            webDomainVerifier = serializedObject.FindProperty("webDomainVerifier");
             domainListLocationAnimation = new AnimBool(true, Repaint);
+
+            domainListPathAnimation = new AnimBool(false, Repaint);
+            domainListPath = serializedObject.FindProperty("localDomainListPath");
         }
 
         public override void OnInspectorGUI()
@@ -136,7 +146,7 @@ namespace OmiyaGames.Builds.Editor
 
         private void DrawDomainListLocation()
         {
-            EditorHelpers.DrawBoldFoldout(domainListLocationAnimation, "Domain List Location");
+            EditorHelpers.DrawBoldFoldout(domainListLocationAnimation, "Local Domain List Path");
 
             // Draw the rest of the controls
             using (EditorGUILayout.FadeGroupScope fadeScope = new EditorGUILayout.FadeGroupScope(domainListLocationAnimation.faded))
@@ -145,6 +155,21 @@ namespace OmiyaGames.Builds.Editor
                 {
                     // Draw the rest of the controls
                     DrawFileNamePreview(DrawDomainListLocationControls, AppendDomainListLocation);
+
+                    // Check whether to show custom path
+                    HostArchiveSetting targetSetting = (HostArchiveSetting)serializedObject.targetObject;
+                    domainListPathAnimation.target = (targetSetting.IsLocalPathInWebDomainVerifierDefined == false);
+
+                    // Animate showing this property
+                    using (EditorGUILayout.FadeGroupScope innerFadeScope = new EditorGUILayout.FadeGroupScope(domainListPathAnimation.faded))
+                    {
+                        if (innerFadeScope.visible == true)
+                        {
+                            // Draw the option to fill your own path.
+                            EditorGUILayout.HelpBox("Web Domain Verifier does not define a local path to create a Domain List. Specify one below:", MessageType.Info);
+                            EditorGUILayout.PropertyField(domainListPath);
+                        }
+                    }
                 }
             }
         }
@@ -175,7 +200,6 @@ namespace OmiyaGames.Builds.Editor
                 {
                     // Draw the rest of the controls
                     EditorGUILayout.PropertyField(includeIndexHtml);
-                    EditorGUILayout.PropertyField(domainEncrypter);
                     domainList.DoLayoutList();
 
                     // Draw the import stuff
@@ -248,7 +272,7 @@ namespace OmiyaGames.Builds.Editor
         private string AppendDomainListLocation(string originalString, StringBuilder builder)
         {
             builder.Clear();
-            if ((webLocationChecker.objectReferenceValue != null) && (parentProperty.objectReferenceValue is WebGlBuildSetting))
+            if (parentProperty.objectReferenceValue is WebGlBuildSetting)
             {
                 // Get folder name
                 int endIndex = originalString.LastIndexOf(Helpers.PathDivider);
@@ -260,20 +284,20 @@ namespace OmiyaGames.Builds.Editor
                 builder.Append(setting.FileName.ToString(setting));
                 builder.Append(Helpers.PathDivider);
 
-                // Get Web Location Checker's Domain Name location
-                OmiyaGames.Web.Security.WebLocationChecker checker = (OmiyaGames.Web.Security.WebLocationChecker)webLocationChecker.objectReferenceValue;
-                builder.Append(checker.RemoteDomainListUrl);
+                // Get location from the host itself
+                HostArchiveSetting targetSetting = (HostArchiveSetting)serializedObject.targetObject;
+                builder.Append(targetSetting.LocalDomainListPath);
             }
             else
             {
-                builder.Append("(Field 'Web Location Checker' is not set)");
+                builder.Append("(Field 'Web Domain Verifier' is not set)");
             }
             return builder.ToString();
         }
 
         private void DrawDomainListLocationControls()
         {
-            EditorGUILayout.PropertyField(webLocationChecker);
+            EditorGUILayout.PropertyField(webDomainVerifier);
         }
         #endregion
     }

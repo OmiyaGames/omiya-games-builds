@@ -6,6 +6,7 @@
         "OmiyaGames.Global",
         "OmiyaGames.Cryptography",
         "OmiyaGames.Cryptography.Editor",
+        "OmiyaGames.Web",
         "OmiyaGames.Web.Editor",
         "OmiyaGames.Web.Security",
         "OmiyaGames.Web.Security.Editor"
