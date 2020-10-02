@@ -1,9 +1,9 @@
 {
   "name": "com.omiyagames.builds",
   "displayName": "Omiya Games - Multiplatform Build Settings",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.1-preview.1",
   "unity": "2020.1",
-  "unityRelease": "6f1",
+  "unityRelease": "7f1",
   "description": "Tool for creating multiple builds, for multiple platforms, in just one-click.",
   "category": "Tool",
   "type": "tool",
