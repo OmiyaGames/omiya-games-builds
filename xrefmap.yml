@@ -733,37 +733,12 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Builds.Editor.CustomFileName.CanEditText
   nameWithType: CustomFileName.CanEditText
-- uid: OmiyaGames.Builds.Editor.CustomFileName.GenerateSlug(System.String)
-  name: GenerateSlug(String)
-  href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_GenerateSlug_System_String_
-  commentId: M:OmiyaGames.Builds.Editor.CustomFileName.GenerateSlug(System.String)
-  fullName: OmiyaGames.Builds.Editor.CustomFileName.GenerateSlug(System.String)
-  nameWithType: CustomFileName.GenerateSlug(String)
-- uid: OmiyaGames.Builds.Editor.CustomFileName.GenerateSlug*
-  name: GenerateSlug
-  href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_GenerateSlug_
-  commentId: Overload:OmiyaGames.Builds.Editor.CustomFileName.GenerateSlug
-  isSpec: "True"
-  fullName: OmiyaGames.Builds.Editor.CustomFileName.GenerateSlug
-  nameWithType: CustomFileName.GenerateSlug
 - uid: OmiyaGames.Builds.Editor.CustomFileName.GetText
   name: CustomFileName.GetText
   href: api/OmiyaGames.Builds.Editor.CustomFileName.GetText.html
   commentId: T:OmiyaGames.Builds.Editor.CustomFileName.GetText
   fullName: OmiyaGames.Builds.Editor.CustomFileName.GetText
   nameWithType: CustomFileName.GetText
-- uid: OmiyaGames.Builds.Editor.CustomFileName.InvalidFileNameCharactersSet
-  name: InvalidFileNameCharactersSet
-  href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_InvalidFileNameCharactersSet
-  commentId: F:OmiyaGames.Builds.Editor.CustomFileName.InvalidFileNameCharactersSet
-  fullName: OmiyaGames.Builds.Editor.CustomFileName.InvalidFileNameCharactersSet
-  nameWithType: CustomFileName.InvalidFileNameCharactersSet
-- uid: OmiyaGames.Builds.Editor.CustomFileName.MaxSlugLength
-  name: MaxSlugLength
-  href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_MaxSlugLength
-  commentId: F:OmiyaGames.Builds.Editor.CustomFileName.MaxSlugLength
-  fullName: OmiyaGames.Builds.Editor.CustomFileName.MaxSlugLength
-  nameWithType: CustomFileName.MaxSlugLength
 - uid: OmiyaGames.Builds.Editor.CustomFileName.Prefill
   name: CustomFileName.Prefill
   href: api/OmiyaGames.Builds.Editor.CustomFileName.Prefill.html
@@ -857,19 +832,6 @@ references:
   commentId: F:OmiyaGames.Builds.Editor.CustomFileName.PrefillType.Version
   fullName: OmiyaGames.Builds.Editor.CustomFileName.PrefillType.Version
   nameWithType: CustomFileName.PrefillType.Version
-- uid: OmiyaGames.Builds.Editor.CustomFileName.RemoveDiacritics(System.Text.StringBuilder,System.String)
-  name: RemoveDiacritics(StringBuilder, String)
-  href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_RemoveDiacritics_System_Text_StringBuilder_System_String_
-  commentId: M:OmiyaGames.Builds.Editor.CustomFileName.RemoveDiacritics(System.Text.StringBuilder,System.String)
-  fullName: OmiyaGames.Builds.Editor.CustomFileName.RemoveDiacritics(System.Text.StringBuilder, System.String)
-  nameWithType: CustomFileName.RemoveDiacritics(StringBuilder, String)
-- uid: OmiyaGames.Builds.Editor.CustomFileName.RemoveDiacritics*
-  name: RemoveDiacritics
-  href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_RemoveDiacritics_
-  commentId: Overload:OmiyaGames.Builds.Editor.CustomFileName.RemoveDiacritics
-  isSpec: "True"
-  fullName: OmiyaGames.Builds.Editor.CustomFileName.RemoveDiacritics
-  nameWithType: CustomFileName.RemoveDiacritics
 - uid: OmiyaGames.Builds.Editor.CustomFileName.TextMapper
   name: TextMapper
   href: api/OmiyaGames.Builds.Editor.CustomFileName.html#OmiyaGames_Builds_Editor_CustomFileName_TextMapper
@@ -1358,6 +1320,12 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.Build
   nameWithType: HostArchiveSetting.Build
+- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.DefaultLocalDomainListPath
+  name: DefaultLocalDomainListPath
+  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_DefaultLocalDomainListPath
+  commentId: F:OmiyaGames.Builds.Editor.HostArchiveSetting.DefaultLocalDomainListPath
+  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.DefaultLocalDomainListPath
+  nameWithType: HostArchiveSetting.DefaultLocalDomainListPath
 - uid: OmiyaGames.Builds.Editor.HostArchiveSetting.DomainEncrypter
   name: DomainEncrypter
   href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_DomainEncrypter
@@ -1410,6 +1378,32 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.IsEnabled
   nameWithType: HostArchiveSetting.IsEnabled
+- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+  name: IsLocalPathInWebDomainVerifierDefined
+  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_IsLocalPathInWebDomainVerifierDefined
+  commentId: P:OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+  nameWithType: HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined*
+  name: IsLocalPathInWebDomainVerifierDefined
+  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_IsLocalPathInWebDomainVerifierDefined_
+  commentId: Overload:OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+  isSpec: "True"
+  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+  nameWithType: HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined
+- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath
+  name: LocalDomainListPath
+  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_LocalDomainListPath
+  commentId: P:OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath
+  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath
+  nameWithType: HostArchiveSetting.LocalDomainListPath
+- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath*
+  name: LocalDomainListPath
+  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_LocalDomainListPath_
+  commentId: Overload:OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath
+  isSpec: "True"
+  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath
+  nameWithType: HostArchiveSetting.LocalDomainListPath
 - uid: OmiyaGames.Builds.Editor.HostArchiveSetting.PreBuildCheck(System.String@)
   name: PreBuildCheck(out String)
   href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_PreBuildCheck_System_String__
@@ -1426,19 +1420,6 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.PreBuildCheck
   nameWithType: HostArchiveSetting.PreBuildCheck
-- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker
-  name: WebLocationChecker
-  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_WebLocationChecker
-  commentId: P:OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker
-  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker
-  nameWithType: HostArchiveSetting.WebLocationChecker
-- uid: OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker*
-  name: WebLocationChecker
-  href: api/OmiyaGames.Builds.Editor.HostArchiveSetting.html#OmiyaGames_Builds_Editor_HostArchiveSetting_WebLocationChecker_
-  commentId: Overload:OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker
-  isSpec: "True"
-  fullName: OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker
-  nameWithType: HostArchiveSetting.WebLocationChecker
 - uid: OmiyaGames.Builds.Editor.HostArchiveSettingEditor
   name: HostArchiveSettingEditor
   href: api/OmiyaGames.Builds.Editor.HostArchiveSettingEditor.html

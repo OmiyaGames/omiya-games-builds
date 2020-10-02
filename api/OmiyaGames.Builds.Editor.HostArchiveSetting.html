@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class HostArchiveSetting
    | Builds documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -156,8 +156,38 @@ THE SOFTWARE.
 <strong>Version:</strong> 0.1.0-preview.1<br>
 <strong>Date:</strong> 5/24/2020<br>
 <strong>Author:</strong> Taro Omiya
-</td><td>Converting file to a package.</td></tr></tbody></table></p>
+</td><td>Converting file to a package.</td></tr><tr><td>
+<strong>Version:</strong> 0.1.1-preview.1<br>
+<strong>Date:</strong> 10/1/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>Using the new <seealso cref="!:WebDomainVerifier"></seealso>.</td></tr></tbody></table></p>
 </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_DefaultLocalDomainListPath" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.DefaultLocalDomainListPath">DefaultLocalDomainListPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DefaultLocalDomainListPath = &quot;domains&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
@@ -214,7 +244,8 @@ THE SOFTWARE.
   
   <a id="OmiyaGames_Builds_Editor_HostArchiveSetting_DomainEncrypter_" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.DomainEncrypter*"></a>
   <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_DomainEncrypter" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.DomainEncrypter">DomainEncrypter</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The encrypter of the list of domains. Returns <code>null</code> if domain list is not meant to be encrypted.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -239,7 +270,8 @@ THE SOFTWARE.
   
   <a id="OmiyaGames_Builds_Editor_HostArchiveSetting_IncludeIndexHtml_" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.IncludeIndexHtml*"></a>
   <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_IncludeIndexHtml" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.IncludeIndexHtml">IncludeIndexHtml</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates whether the HTML file will be included as part of the zipping process.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -264,7 +296,8 @@ THE SOFTWARE.
   
   <a id="OmiyaGames_Builds_Editor_HostArchiveSetting_IsEnabled_" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.IsEnabled*"></a>
   <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_IsEnabled" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.IsEnabled">IsEnabled</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates whether this setting will be processed for building or not.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -287,13 +320,13 @@ THE SOFTWARE.
   </table>
   
   
-  <a id="OmiyaGames_Builds_Editor_HostArchiveSetting_WebLocationChecker_" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker*"></a>
-  <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_WebLocationChecker" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.WebLocationChecker">WebLocationChecker</h4>
+  <a id="OmiyaGames_Builds_Editor_HostArchiveSetting_IsLocalPathInWebDomainVerifierDefined_" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined*"></a>
+  <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_IsLocalPathInWebDomainVerifierDefined" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.IsLocalPathInWebDomainVerifierDefined">IsLocalPathInWebDomainVerifierDefined</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WebLocationChecker WebLocationChecker { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsLocalPathInWebDomainVerifierDefined { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -305,7 +338,33 @@ THE SOFTWARE.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">WebLocationChecker</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Builds_Editor_HostArchiveSetting_LocalDomainListPath_" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath*"></a>
+  <h4 id="OmiyaGames_Builds_Editor_HostArchiveSetting_LocalDomainListPath" data-uid="OmiyaGames.Builds.Editor.HostArchiveSetting.LocalDomainListPath">LocalDomainListPath</h4>
+  <div class="markdown level1 summary"><p>The path local to web build where the domain list will be created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string LocalDomainListPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>
