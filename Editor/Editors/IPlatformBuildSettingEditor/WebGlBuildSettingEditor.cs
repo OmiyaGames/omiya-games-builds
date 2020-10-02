@@ -41,8 +41,7 @@ namespace OmiyaGames.Builds.Editor
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>Initial verison.</description>
-    /// </item>
-    /// <item>
+    /// </item><item>
     /// <term>
     /// <strong>Version:</strong> 0.1.0-preview.1<br/>
     /// <strong>Date:</strong> 5/24/2020<br/>

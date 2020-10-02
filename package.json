@@ -2,8 +2,8 @@
   "name": "com.omiyagames.builds",
   "displayName": "Omiya Games - Multiplatform Build Settings",
   "version": "0.1.0-preview.1",
-  "unity": "2019.3",
-  "unityRelease": "13f1",
+  "unity": "2020.1",
+  "unityRelease": "6f1",
   "description": "Tool for creating multiple builds, for multiple platforms, in just one-click.",
   "category": "Tool",
   "type": "tool",
@@ -16,11 +16,11 @@
   "dependencies": {
     "com.unity.ext.nunit": "1.0.0",
     "io.github.icsharpcode.sharpziplib": "1.2.0",
-    "com.omiyagames.common": "0.1.3-preview.1",
-    "com.omiyagames.global": "0.1.0-preview.1",
-    "com.omiyagames.web": "0.2.0-preview.1",
-    "com.omiyagames.web.security": "0.1.0-preview.1",
-    "com.omiyagames.cryptography": "0.2.1-preview.1"
+    "com.omiyagames.common": "0.2.0-preview.1",
+    "com.omiyagames.cryptography": "0.3.0-preview.2",
+    "com.omiyagames.global": "0.1.2-preview.1",
+    "com.omiyagames.web": "0.3.0-preview.2",
+    "com.omiyagames.web.security": "0.2.0-preview.2"
   },
   "keywords": [
     "Omiya Games",
