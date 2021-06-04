@@ -1,15 +1,16 @@
 {
     "name": "OmiyaGames.Builds.Editor",
+    "rootNamespace": "OmiyaGames.Builds.Editor",
     "references": [
-        "OmiyaGames",
-        "OmiyaGames.Common.Editor",
-        "OmiyaGames.Global",
-        "OmiyaGames.Cryptography",
-        "OmiyaGames.Cryptography.Editor",
-        "OmiyaGames.Web",
-        "OmiyaGames.Web.Editor",
-        "OmiyaGames.Web.Security",
-        "OmiyaGames.Web.Security.Editor"
+        "GUID:cdda17712c724478898665290e9a02cc",
+        "GUID:90033a3be777c4196bcbfc7e725c4e31",
+        "GUID:5a47daee1058bbd4ebc7a2d2e7de3c24",
+        "GUID:7f4dbb4916058a7438cc6b2e9fee8d60",
+        "GUID:b7e8df2fdeb1c1b408914e29c0849b5d",
+        "GUID:cdc4947907db47a4bafdf68c192e74ff",
+        "GUID:d076525d750a7404cb6d6e5e849390dc",
+        "GUID:a7a1f455bdb1c5447a8576f53f5b8b93",
+        "GUID:0dd9f8ba6e218314e9df7fa506755a0f"
     ],
     "includePlatforms": [
         "Editor"
