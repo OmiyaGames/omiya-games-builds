@@ -1,5 +1,9 @@
 # Change Log:
 
+## 0.2.0-preview.2
+
+- Enhancment: upgrading the assembly definitions and package files.
+
 ## 0.2.0-preview.1
 
 - Enhancment: adding support for new [`WebDomainVerifier`](https://github.com/OmiyaGames/omiya-games-web-security/blob/master/Runtime/WebDomainVerifier.cs)
