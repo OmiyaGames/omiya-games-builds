@@ -1,5 +1,9 @@
 # Change Log:
 
+## 1.0.0-pre.1
+
+- Upgrading version number to latest Unity package version number standards.
+
 ## 0.2.0-preview.2
 
 - Enhancment: upgrading the assembly definitions and package files.
