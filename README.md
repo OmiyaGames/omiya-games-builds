@@ -60,4 +60,4 @@ As this package is in early stages of development, there are some known issues.
 
 Overall package is licensed under [MIT](/LICENSE.md), unless otherwise noted in the [3rd party licenses](/THIRD%20PARTY%20NOTICES.md) file and/or source code.
 
-Copyright (c) 2019-2020 Omiya Games
+Copyright (c) 2019-2021 Omiya Games
