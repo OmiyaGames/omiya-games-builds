@@ -1,5 +1,9 @@
 # Change Log:
 
+## 1.0.1-pre.1
+
+- Bug fix: upgrading iOS build based on Untiy 2021.2 auto-upgrade scripts tool.
+
 ## 1.0.0-pre.1
 
 - Upgrading version number to latest Unity package version number standards.

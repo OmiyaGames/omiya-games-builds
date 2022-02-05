@@ -88,7 +88,7 @@ namespace OmiyaGames.Builds.Editor
                 // FIXME: add more options once fileds are determined
                 if (symlinkLibraries == true)
                 {
-                    options |= BuildOptions.SymlinkLibraries;
+                    options |= BuildOptions.SymlinkSources;
                 }
                 if (acceptExternalModificationsToPlayer == true)
                 {
